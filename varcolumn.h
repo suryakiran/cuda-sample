@@ -8,8 +8,8 @@ public:
     varcolumn();
     ~varcolumn();
 
-    void print();
-    void setData(std::size_t size, double value);
+    double print();
+    void   setData(std::size_t size, double value);
 
 private:
     char* alloc(std::size_t size, double value);

@@ -19,23 +19,6 @@ varcolumn::~varcolumn()
 }
 
 void
-varcolumn::print()
-{
-    std::cout << BOOST_CURRENT_FUNCTION << std::endl;
-    if (data) {
-        thrust::device_ptr<double> dptr(reinterpret_cast<double*>(data.get()));
-        if (dptr.get()) {
-            auto val = thrust::raw_pointer_cast(dptr);
-            std::cout << boost::core::demangle(typeid(val).name()) << std::endl;
-            std::cout << *val << std::endl;
-        }
-        std::cout << "Has Data" << std::endl;
-    } else {
-        std::cout << "No Data to print" << std::endl;
-    }
-}
-
-void
 varcolumn::setData(std::size_t size, double value)
 {
     data.reset(alloc(size, value), [&](void* d) { freeData(d); });
