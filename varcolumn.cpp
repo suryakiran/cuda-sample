@@ -5,33 +5,25 @@
 #include <typeinfo>
 #include <cuda_runtime.h>
 #include <thrust/device_ptr.h>
-#include <boost/core/demangle.hpp>
-#include <boost/current_function.hpp>
 
 varcolumn::varcolumn()
 {
-    std::cout << BOOST_CURRENT_FUNCTION << std::endl;
+    //    std::cout << BOOST_CURRENT_FUNCTION << std::endl;
 }
 
 varcolumn::~varcolumn()
 {
-    std::cout << BOOST_CURRENT_FUNCTION << std::endl;
+    // std::cout << BOOST_CURRENT_FUNCTION << std::endl;
 }
 
 void
 varcolumn::print()
 {
-    std::cout << BOOST_CURRENT_FUNCTION << std::endl;
+    //  std::cout << BOOST_CURRENT_FUNCTION << std::endl;
     if (data) {
-        thrust::device_ptr<double> dptr(reinterpret_cast<double*>(data.get()));
-        if (dptr.get()) {
-            auto val = thrust::raw_pointer_cast(dptr);
-            std::cout << boost::core::demangle(typeid(val).name()) << std::endl;
-            std::cout << *val << std::endl;
-        }
-        std::cout << "Has Data" << std::endl;
-    } else {
-        std::cout << "No Data to print" << std::endl;
+        cudaSetDevice(0);
+        auto num = thrust::device_ptr<double>((double*)data.get())[5];
+        std::cout << num << std::endl;
     }
 }
 
@@ -46,7 +38,7 @@ varcolumn::setData(std::size_t size, double value)
 void
 varcolumn::freeData(void* data)
 {
-    std::cout << BOOST_CURRENT_FUNCTION << std::endl;
+    // std::cout << BOOST_CURRENT_FUNCTION << std::endl;
 
     if (data) {
         auto err = cudaFree(data);
@@ -82,7 +74,7 @@ varcolumn::alloc(std::size_t size, double value)
         std::cout << allocDetail << std::endl;
     }
 
-    std::cout << BOOST_CURRENT_FUNCTION << std::endl;
+    // std::cout << BOOST_CURRENT_FUNCTION << std::endl;
 
     return ret;
 }
