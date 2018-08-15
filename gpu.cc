@@ -81,7 +81,7 @@ initCuda()
 varcolptr
 initData(std::size_t size, double value)
 {
-    auto ret = std::make_shared<varcolumn>();
-    ret->setData(size, value);
-    return ret;
+    // auto ret = std::make_shared<varcolumn>();
+    // ret->setData(size, value);
+    // return ret;
 }

@@ -4,7 +4,7 @@ project(cuda-sample)
 set(CMAKE_CXX_STANDARD 14)
 
 find_package(Boost)
-set(source_files main.cc gpu.hpp gpu.cu gpu.cc varcolumn.h varcolumn.cpp varcolumn.cu)
+set(source_files main.cc gpu.hpp gpu.cu gpu.cc varcolumn.h varcolumn.cpp)
 
 set (CUDA_NVCC_FLAGS "--gpu-architecture sm_35"  CACHE STRING "nvcc flags" FORCE)
 
