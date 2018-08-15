@@ -10,7 +10,7 @@ main()
     printCudaVersion();
     std::cout << "*********** Cuda Status End: ***********" << std::endl;
 
-    auto col = initData(25, 23.4);
+    auto col = initData(25500, 23.4);
 
     if (col) {
         col->print();
