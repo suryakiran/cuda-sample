@@ -13,7 +13,7 @@ main()
     auto col = initData(25500, 23.4);
 
     if (col) {
-        col->print();
+        std::cout << col->print() << std::endl;
     } else {
         std::cout << "No data to print" << std::endl;
     }
