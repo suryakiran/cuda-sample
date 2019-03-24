@@ -5,3 +5,4 @@
 void      printCudaVersion();
 void      initCuda();
 varcolptr initData(std::size_t size, double value);
+void      thrustTest();

@@ -10,13 +10,14 @@ main()
     printCudaVersion();
     std::cout << "*********** Cuda Status End: ***********" << std::endl;
 
-    auto col = initData(25, 23.4);
+    // auto col = initData(25, 23.4);
 
-    if (col) {
-        std::cout << col->print() << std::endl;
-    } else {
-        std::cout << "No data to print" << std::endl;
-    }
+    // if (col) {
+    //     std::cout << col->print() << std::endl;
+    // } else {
+    //     std::cout << "No data to print" << std::endl;
+    // }
 
+    thrustTest();
     return 0;
 }
