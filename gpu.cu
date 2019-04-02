@@ -1,9 +1,11 @@
 #include <iostream>
+#include <numeric>
 #include <cuda.h>
 #include <cuda_runtime.h>
 #include <thrust/device_vector.h>
 #include <thrust/host_vector.h>
 #include <thrust/scatter.h>
+#include <boost/range/algorithm_ext.hpp>
 #include "gpu.hpp"
 
 void
@@ -39,4 +41,23 @@ thrustTest()
     }
     std::cout << std::endl;
     std::cout << " ***** Thrust Test end *****" << std::endl;
+}
+
+void
+getNewIndices(const std::vector<int>& input, size_t xs, size_t ys, size_t kernel)
+{
+    size_t nx{xs / kernel}, ny{ys / kernel};
+
+    std::cout << nx << '\t' << ny << std::endl;
+}
+
+void
+imageTest()
+{
+    size_t xs(8), ys(8), kernel(2);
+
+    std::vector<int> vi(xs * ys);
+    boost::iota(vi, 0);
+
+    getNewIndices(vi, xs, ys, kernel);
 }
