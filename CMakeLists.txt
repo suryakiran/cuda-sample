@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.14.0)
+cmake_minimum_required(VERSION 3.13.0)
 
 project(cuda-sample)
 set(CMAKE_CXX_STANDARD 17)
@@ -10,6 +10,7 @@ set(source_files main.cc gpu.hpp gpu.cu gpu.cc varcolumn.h varcolumn.cpp varcolu
 
 enable_language("CUDA")
 
+include_directories("/usr/local/cuda/include")
 add_executable(cuda-sample ${source_files})
 
 set_target_properties(cuda-sample PROPERTIES CUDA_SEPARABLE_COMPILATION ON)
